@@ -1,0 +1,101 @@
+<div class="content is-flex">
+    <div class="sidepanel is-flex is-flex-direction-column" [ngClass]="{'open': show}">
+        <a class="closeButton is-align-self-flex-end" (click)="closeSidepanel()">
+            <mat-icon>close</mat-icon>
+        </a>
+        <form [formGroup]="form" (ngSubmit)="getLocations($event)" class="is-align-self-center">
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input" type="text" formControlName="search">
+                </div>
+                <div class="control">
+                    <input type="submit" value="Buscar" class="button is-light">
+                </div>
+            </div>
+        </form>
+        <div class="locationsToSearch">
+            <ul class="list">
+                <a *ngFor="let item of datalist" (click)="changeLocation(item)">
+                    <li class="locationToSearchOption">
+                        <span class="is-size-5">{{item.locationName}}</span><br>
+                        <span class="is-size-6">{{item.fullLocationName}}</span>
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content columns">
+        <aside class="column is-one-third main-info is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between">
+            <button class="button is-small" (click)="showSidepanel()">
+              <span class="icon is-small">
+                <mat-icon>search</mat-icon>
+              </span>
+              <span>Buscar</span>
+            </button>
+            <div class="temperature-info has-text-centered">
+                <img src="{{'assets/icons/'+data.icon+'-s.png'}}" alt="{{data.weatherText}}" class="weather-icon">
+                <p class="is-size-1">{{data.temperature}}</p>
+                <p class="is-size-3">{{data.watherText}}</p>
+            </div>
+            <div class="location-info has-text-centered">
+                <p class="is-size-6">{{today}}</p>
+                <p class="is-size-6">{{data.locationName}}</p>
+            </div>
+        </aside>
+        <div class="column forecast-info is-flex is-flex-direction-column is-two-thirds is-offset-one-third">
+            <div class="days is-flex is-justify-content-space-between">
+                <div class="card has-text-centered" *ngFor="let item of data.forecast; let i=index">
+                    <p class="is-size-6">{{(i != 0 && item.date == 0) ? 'Domingo' : (i != 0 && item.date == 1) ? 'Lunes' : (i != 0 && item.date == 2) ? 'Martes' : (i != 0 && item.date == 3) ? 'Miércoles' : (i != 0 && item.date == 4) ? 'Jueves' : (i != 0 && item.date == 5)
+                        ? 'Viernes' : (i != 0 && item.date == 6) ? 'Sábado' : 'Hoy'}}</p>
+                    <p class="is-size-6"><b>{{item.weatherPhrase}}</b></p>
+                    <img src="{{'assets/icons/'+item.iconDay+'-s.png'}}" alt="{{item.weatherPhraseDay}}" *ngIf="time < item.sun.set.getHours()">
+                    <img src="{{'assets/icons/'+item.iconNight+'-s.png'}}" alt="{{itemweatherPhraseNight}}" *ngIf="time >= item.sun.set.getHours()">
+                    <p class="is-size-6">{{item.maxTemperature}} / {{item.minTemperature}}</p>
+                </div>
+            </div>
+            <div class="weather-info">
+                <div class="columns is-multiline is-variable is-5">
+                    <div class="column is-half has-text-centered">
+                        <div class="info-card">
+                            <p class="is-size-5">Sensación real</p>
+                            <p class="is-size-2">{{data.realFeelTemperature}}</p>
+                        </div>
+                    </div>
+                    <div class="column is-half has-text-centered">
+                        <div class="info-card">
+                            <p class="is-size-5">Humedad</p>
+                            <p class="is-size-2">{{data.humidity}}%</p>
+                        </div>
+                    </div>
+                    <div class="column is-half has-text-centered">
+                        <div class="info-card">
+                            <p class="is-size-5">Velocidad del viento</p>
+                            <p class="is-size-2">{{data.windSpeed}}</p>
+                        </div>
+                    </div>
+                    <div class="column is-half has-text-centered">
+                        <div class="info-card">
+                            <p class="is-size-5">Visibilidad</p>
+                            <p class="is-size-2">{{data.visibility}}</p>
+                        </div>
+                    </div>
+                    <div class="column is-half has-text-centered">
+                        <div class="info-card">
+                            <p class="is-size-5">Presión</p>
+                            <p class="is-size-2">{{data.airPressure}}</p>
+                        </div>
+                    </div>
+                    <div class="column is-half has-text-centered">
+                        <div class="info-card">
+                            <p class="is-size-5">Índice UV</p>
+                            <p class="is-size-2">{{data.uvIndex}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer has-text-centered">
+                powered by <a href="https://github.com/emmanuel4" target="_blank" rel="noopener noreferrer">Emmanuel Bernal</a>
+            </div>
+        </div>
+    </div>
+</div>

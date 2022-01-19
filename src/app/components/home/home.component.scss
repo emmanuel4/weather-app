@@ -1,0 +1,114 @@
+.content {
+    .sidepanel {
+        width: 0;
+        height: 100vh;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: black;
+        opacity: 0.8;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding: 1rem 0;
+        &.open {
+            padding: 1rem 9.5rem;
+            width: 33.3333%;
+        }
+        .closeButton {
+            text-decoration: none;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .locationsToSearch {
+            overflow-y: auto;
+            .list {
+                list-style: none;
+                margin: 0;
+                padding: 0 1.5rem;
+                box-sizing: border-box;
+            }
+            a {
+                text-decoration: none;
+                .locationToSearchOption {
+                    color: white;
+                    margin: 0.5rem 0;
+                    padding: 0.25rem;
+                    background-color: #1E213A;
+                    border-radius: 0.5rem;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+.main-content {
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    width: 100%;
+    .main-info {
+        height: 100vh;
+        background-color: #1E213A;
+        color: white;
+        position: fixed;
+        .weather-icon {
+            width: 12rem;
+            margin: 3rem;
+        }
+    }
+    .forecast-info {
+        background-color: #100E1D;
+        padding: 1rem 9.5rem;
+        min-height: 100vh;
+        .days {
+            width: 100%;
+            overflow-x: auto;
+            .card {
+                background-color: #1E213A;
+                color: white;
+                padding: 1rem;
+                width: 10rem;
+            }
+        }
+        .weather-info {
+            margin: 3rem 0;
+            .info-card {
+                background-color: #1E213A;
+                color: white;
+                padding: 1rem 2rem;
+            }
+        }
+        .footer {
+            background-color: transparent;
+            padding: 1rem;
+            margin-top: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .content {
+        .sidepanel {
+            &.open {
+                padding: 1rem 2rem;
+                width: 100%;
+            }
+        }
+        .main-content {
+            .main-info {
+                height: max-content;
+                position: relative;
+            }
+            .forecast-info {
+                padding: 1rem;
+                .days {
+                    .card {
+                        margin: 0 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
