@@ -25,7 +25,7 @@ export class ApiService {
   getLocation(ip) {
     return new Promise((resolve, reject) => {
       this.http.get(
-        `http://dataservice.accuweather.com/locations/v1/cities/ipaddress?apikey=2SFLHg2EGtTVnYH55moe66GVN0S7rzMm&q=${ip}&language=es-mx&details=false`,
+        `https://dataservice.accuweather.com/locations/v1/cities/ipaddress?apikey=2SFLHg2EGtTVnYH55moe66GVN0S7rzMm&q=${ip}&language=es-mx&details=false`,
       ).subscribe(response => {
         resolve(response);
       }, err => {
@@ -39,7 +39,7 @@ export class ApiService {
   getCurrentConditions(key) {
     return new Promise((resolve, reject) => {
       this.http.get(
-        `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=2SFLHg2EGtTVnYH55moe66GVN0S7rzMm&language=es-mx&details=true`,
+        `https://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=2SFLHg2EGtTVnYH55moe66GVN0S7rzMm&language=es-mx&details=true`,
       ).subscribe(response => {
         resolve(response);
       }, err => {
@@ -53,7 +53,7 @@ export class ApiService {
   getForecastFiveDays(key) {
     return new Promise((resolve, reject) => {
       this.http.get(
-        `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=2SFLHg2EGtTVnYH55moe66GVN0S7rzMm&language=es-mx&details=true&metric=true`,
+        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=2SFLHg2EGtTVnYH55moe66GVN0S7rzMm&language=es-mx&details=true&metric=true`,
       ).subscribe(response => {
         resolve(response);
       }, err => {
@@ -67,7 +67,7 @@ export class ApiService {
   autocompleteSearch(text) {
     return new Promise((resolve, reject) => {
       this.http.get(
-        `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=2SFLHg2EGtTVnYH55moe66GVN0S7rzMm&q=${text}&language=es-mx`,
+        `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=2SFLHg2EGtTVnYH55moe66GVN0S7rzMm&q=${text}&language=es-mx`,
       ).subscribe(response => {
         resolve(response);
       }, err => {
