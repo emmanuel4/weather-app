@@ -12,7 +12,7 @@
         transition: 0.5s;
         padding: 1rem 0;
         &.open {
-            padding: 1rem 9.5rem;
+            padding: 1rem 5.5rem;
             width: 33.3333%;
         }
         .closeButton {
@@ -25,7 +25,7 @@
             .list {
                 list-style: none;
                 margin: 0;
-                padding: 0 1.5rem;
+                padding: 0 0.5rem;
                 box-sizing: border-box;
             }
             a {
@@ -69,7 +69,6 @@
                 background-color: #1E213A;
                 color: white;
                 padding: 1rem;
-                width: 10rem;
             }
         }
         .weather-info {
@@ -92,6 +91,36 @@
     .content {
         .sidepanel {
             &.open {
+                padding: 1rem;
+            }
+        }
+        .main-content {
+            .main-info {
+                min-height: 100vh;
+                height: max-content;
+                box-sizing: border-box;
+                .weather-icon {
+                    width: 6rem;
+                    margin: 1rem auto;
+                }
+            }
+            .forecast-info {
+                padding: 1rem 2rem;
+                box-sizing: border-box;
+                .days {
+                    .card {
+                        margin: 0 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        .sidepanel {
+            &.open {
                 padding: 1rem 2rem;
                 width: 100%;
             }
@@ -106,6 +135,7 @@
                 .days {
                     .card {
                         margin: 0 0.5rem;
+                        width: 10rem;
                     }
                 }
             }
