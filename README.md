@@ -4,7 +4,7 @@ This project was generated with Angular version 11.2.14.
 
 This project use the AccuWeather API, ipify API, Bulma and Angular Material.
 
-To see the project enter https://master.d3ulf7zq51ua87.amplifyapp.com/
+To see the project enter https://weather-app.thefront.dev/
 
 ## Functionality
 First use the ipify API to get the public IP, then use AccuWeather API to get the location of that public IP, and get the "key" of that location, thereafter get the current conditions of locations and get the forecast to 5 days.
